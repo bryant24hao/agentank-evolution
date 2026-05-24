@@ -1,0 +1,75 @@
+{
+  "successful": [
+    {
+      "pattern": "crashed-by-bullet",
+      "candidate": "v5-bullet-horizon",
+      "evidence": "session 起点 v2 frequent crashes, v5 fix 5W/1L validation",
+      "merged_to": "current base"
+    },
+    {
+      "pattern": "crashed-by-bullet",
+      "candidate": "v6-aimed-close-sidestep",
+      "evidence": "Drill-style preemptive snipes, v6 4W/1L validation"
+    },
+    {
+      "pattern": "crashed-by-bullet",
+      "candidate": "v7-180-double-turn",
+      "evidence": "sidestep wrong-direction bug, v7 7W/1L stress"
+    },
+    {
+      "pattern": "fire-trade-bullet-waste",
+      "candidate": "v8-skip-overload-aligned",
+      "evidence": "aligned mutual fire loss, v8 16W/2L"
+    },
+    {
+      "pattern": "lost-star-race",
+      "candidate": "v9-bfs-avoid-aimed-los",
+      "evidence": "walked back into firing lane, v9 22W/4L"
+    },
+    {
+      "pattern": "off-axis-fire-opportunity",
+      "candidate": "v10-overload-offset-shot",
+      "evidence": "studied 🛡 top tank, v10 11W/1L"
+    },
+    {
+      "pattern": "crashed-mutual-runTime",
+      "candidate": "v24-bfs-budget-map-aware",
+      "evidence": "keith-style fast tanks beat tiebreaker, v24 sim 30/30 + real 5/0"
+    },
+    {
+      "pattern": "crashed-mutual-runTime",
+      "candidate": "v26-hybrid-bfs",
+      "evidence": "v25 over-aggressive on small maps, v26 hybrid 17/18 sim + 5/0 real"
+    }
+  ],
+  "failed": [
+    {"pattern": "predictive", "candidate": "v3", "reason": "全面重写，2W/8L disaster"},
+    {"pattern": "predictive", "candidate": "v11", "reason": "随机 juke 抢星变慢"},
+    {"pattern": "cover-preference", "candidate": "v12", "reason": "grass-preferring sidestep 绕远"},
+    {"pattern": "cloak-ambush", "candidate": "v13", "reason": "触发太窄, stress 0W/7L"},
+    {"pattern": "freeze-then-shot", "candidate": "v14", "reason": "pursuit phase 过度防御"},
+    {"pattern": "cloak-ambush", "candidate": "v16", "reason": "lane memory, 0W/7L stress disaster"},
+    {"pattern": "predictive-fire", "candidate": "v17", "reason": "线性预测错误率高"},
+    {"pattern": "pure-defense", "candidate": "v18", "reason": "无火力威胁敌人从容瞄死"},
+    {"pattern": "anti-camp", "candidate": "v19", "reason": "触发率太低无实际效果"},
+    {"pattern": "fire-position-seek", "candidate": "v20", "reason": "+30% runtime, marginal gain"},
+    {"pattern": "mound-break", "candidate": "v21", "reason": "wasted bullet slot 1 frame"},
+    {"pattern": "mound-break-lean", "candidate": "v22", "reason": "same v21 issue"},
+    {"pattern": "blanket-bfs-reduce", "candidate": "v25", "reason": "small map node count too low"},
+    {"pattern": "chain-turn-fire", "candidate": "v27", "reason": "sim 9/9 但 real 0/4, sim mislead"}
+  ],
+  "structural_unsolvable": [
+    {
+      "pattern": "teleport-star-steal",
+      "reason": "Overload 无法对抗 teleport 的瞬移抢星，需买 teleport 技能"
+    },
+    {
+      "pattern": "cloak-ambush",
+      "reason": "无 simulator 不能离线训练预测；引擎沙箱无 ML"
+    },
+    {
+      "pattern": "vs-champion-tier-2400+",
+      "reason": "顶尖玩家 v100+ 迭代版本，单点 surgical 难赶上"
+    }
+  ]
+}
