@@ -93,13 +93,31 @@
 ## v23 (revert to v10)
 - 纯 v10 回滚
 
-## v24 ✅ ⭐ (最新优化)
+## v24 ✅ (BFS map-aware)
 - BFS maxNodes 按地图大小动态调整：
   - 小地图（≤200 格，如 Star Cup public-map-6 176 格）：150
   - 大地图（>200 格，如 random 285 格）：400
 - runtime 减 26%（91ms → 67ms）on Star Cup map
 - sim 30/30 全胜，real 5/0 pass
-- 累计 17W/8L = 68%
+
+## v25 ❌ → rollback (sim only)
+- BFS maxNodes = floor(mapSize/1.5)（所有地图都按比例）
+- sim 17/18 = 94%，但 Star Cup map 78%（小 map 117 太低）
+- 没 publish real，决定 v26 hybrid 折中
+
+## v26 ✅ ⭐ (hybrid BFS - 最新成功版)
+- 小地图保 v24 的 150（Star Cup 安全）
+- 大地图用 mapSize/1.5（random 285→190）
+- sim 17/18 = 94%
+- real 5/0 pass，100-game grind 46W/39L = 54%
+- score 2047→2140 (+93)
+
+## v27 ❌ → rollback
+- 思路：fire block 内 chain turn+fire 同 onIdle
+- 想法：engine 自动 turn 后 fire（节省一帧延迟）
+- sim 9/9 完美**但 real 0W/4L 灾难**
+- 原因：训练 bot 不动 sim 看似有效，真实对手在 turn 帧移动→queued fire 浪费 bullet
+- 教训：sim 严重 mislead，对手行为差异巨大
 
 ## 路径
 

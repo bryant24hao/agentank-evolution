@@ -24,7 +24,7 @@
 
 净增 **+1780 score** (×7.7)，**9 段位提升**，Eazo Cup 拿到铜牌。
 
-## 进化历程：成功的 7 个版本
+## 进化历程：成功的 8 个版本
 
 每个版本只解决一类**实测**的死法，逐步打磨：
 
@@ -37,8 +37,9 @@
 | **v9** | 二次走回同一火线被打死 | BFS 第一步避开敌方瞄准 LOS |
 | **v10** | Overload 偏移射击未利用 | 1 格 off-axis + 距离≥3 时 overload 双弹拦截 |
 | **v24** | Star Cup 地图 runtime 慢 | 地图 ≤200 格时 BFS maxNodes 400→150 |
+| **v26** ⭐ | 大地图 runtime 也可优化 | Hybrid：小图保 150，大图 mapSize/1.5 (random 285→190) |
 
-## 失败的 13 次实验
+## 失败的 15 次实验
 
 全部 rollback，平均每次扣 30-50 分：
 
@@ -58,6 +59,8 @@
 | v21 | mound-breaking shot | 浪费 shot 槽（1 帧 cooldown）|
 | v22 | v10 + mound-break only | 同 v21 问题 |
 | v23 | revert to pure v10 | (回滚版本号) |
+| v25 | 所有地图按 mapSize/1.5 | 小地图节点太低 (117) Star Cup map 退化 |
+| v27 | chain turn+fire 同 onIdle | sim 9/9 但 real **0W/4L 灾难** — sim mislead |
 
 ## 关键 meta 教训
 
